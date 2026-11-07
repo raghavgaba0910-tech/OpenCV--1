@@ -1,48 +1,55 @@
-# Fire_Water_AR
+# Fire & Water AR (Realistic Elemental Hand FX)
 
-A basic webcam project that detects up to two hands and draws animated fire or
-water around each hand. The live camera is shown normally until you raise a
-finger. Then the background turns black while MediaPipe keeps you visible in
-the frame, with a hand outline, effects, and status text.
+A real-time webcam augmented reality application that tracks hands using MediaPipe and wraps them in realistic, high-impact elemental **Fire** and **Water** effects.
 
-## Requirements
+---
 
-- Windows
-- Python 3.11
-- A webcam
-- Internet access for the first setup, to install packages and download the
-  MediaPipe hand landmark model
+## What's New & Upgraded
 
-The project uses OpenCV, MediaPipe, and NumPy. Its 640 x 480 camera setting and
-procedural 2D effects are intended to run comfortably on a basic computer with
-6 GB of memory.
+- **Full Anatomical Hand Coverage:** Replaced crude skeletons and flat boxy hulls with contoured, continuous anatomical skin. Every finger, knuckle, and palm is individually coated in elemental textures that bend and move naturally with your hand.
+- **Realistic Volumetric Fire:**
+  - Magma skin with procedural churning lava veins.
+  - White-hot core bones and palm thermal incandescence.
+  - Multi-tier dynamic flame tongues billowing upward from fingertips and knuckles.
+  - Fire aerodynamics: flames trail behind the hand when moved rapidly.
+  - Flying ember sparks with thermal buoyancy and erratic turbulent dance.
+- **Realistic Volumetric Water:**
+  - Translucent liquid hydro-skin with real-time procedural caustics and wave ripple patterns.
+  - Specular Fresnel rim highlights along finger contours.
+  - 3D rotating orbital water vortex rings circling around the palm and wrist.
+  - 3D liquid droplets with specular highlights that fling dynamically with centrifugal force.
+- **Accurate Orientation-Invariant Gesture Recognition:**
+  - 3D landmark Euclidean distance ratios and joint straightness metrics that work accurately at any angle (upside-down, tilted, sideways).
+  - Multi-frame temporal voting window to eliminate gesture flickering.
+- **Elemental Fusion & Dual-Hand Magic:**
+  - **Fire + Water:** Boiling steam clouds, vapor condensation shockwaves, and electrical sizzle arcs.
+  - **Fire + Fire:** Solar flare inferno with central plasma core.
+  - **Water + Water:** Double hydro maelstrom vortex.
+- **Supercharged Fist Mode:** Making a fist (0 fingers) condenses the elemental power into a pressurized, supercharged state.
+- **Atmospheric Bloom:** Multi-pass Gaussian blur glow that lights up the surroundings and ambient frame.
 
-## Setup and run
+---
 
-1. Double-click `setup.bat`. It creates a local `.venv`, installs the pinned
-   dependencies, and downloads the hand landmark model to `models`.
-2. Double-click `run.bat` to start the webcam application.
-3. Press **Q** in the application window to quit.
+## Gestures & Controls
 
-`run.bat` also invokes setup if the environment or model is missing.
+| Gesture | Element | Description |
+|---|---|---|
+| **1 Finger Up** | 🔥 **Fire** | Engulfs hand in molten lava skin, rising flame plumes, and flying embers |
+| **2+ Fingers Up** | 💧 **Water** | Wraps hand in glistening water caustics, orbital vortex rings, and splashing droplets |
+| **0 Fingers (Fist)** | ⚡ **Supercharge** | Locks and condenses current element into a pressurized, high-energy fist |
+| **Bring Hands Together** | 💥 **Fusion** | Creates steam explosions, solar flare bridges, or hydro maelstroms |
+| **`H` Key** | 🖥️ **Toggle HUD** | Hides or shows the top status bar overlay |
+| **`C` Key** | 🦴 **Skeleton** | Toggles subtle skeletal guide overlay (default OFF for realistic look) |
+| **`R` Key** | 🔄 **Reset** | Clears active particles |
+| **`Q` Key / `ESC`** | ❌ **Exit** | Quits the application and releases the webcam |
 
-## Gestures
+---
 
-- **0 fingers:** keep the last selected effect; a fist holds fire or water in
-  place around the moving hand
-- **1 finger:** animated orange and yellow fire
-- **2 or more fingers:** animated blue and cyan water
+## How to Run
 
-Each detected hand is handled independently. Raise one finger on one hand and
-two or more fingers on the other to see both effects at once. Show a different
-nonzero finger count to switch that hand's effect. The app shows the detected
-finger count, current effect, and FPS.
-
-## Troubleshooting
-
-- If setup cannot find Python, install Python 3.11 and enable the Python
-  launcher, then run `setup.bat` again.
-- If the webcam cannot be opened, connect it and close other applications using
-  it before running `run.bat`.
-- If the model download fails, check your internet connection and run
-  `setup.bat` again.
+1. Open PowerShell / Command Prompt in this folder.
+2. Run:
+   ```powershell
+   .\.venv\Scripts\python.exe main.py
+   ```
+   *(Or double-click `run.bat`)*
